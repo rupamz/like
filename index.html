@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram like effect</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: rgb(55, 55, 135);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .container {
+            background-color: white;
+            width: 250px;
+            height: 300px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .container img {
+            width: 100%;
+            height: 85%;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 10px;
+            padding: 5px;
+        }
+
+        i {
+            font-size: 23px;
+        }
+
+        .like {
+            width: 100%;
+            height: 16%;
+            background-color: rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+
+        .container> :nth-child(2) {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 30px;
+            color: #f70909;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform cubic-bezier(0.39, -0.88, 0.42, 2.07) 0.3s;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img class="mainphoto"
+            src="https://imgs.search.brave.com/Ff7QX_PoMt896cipHaMKeBFjaYlgTBJ3Z5TgfYe6-Ik/rs:fit:500:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzgwLzBk/LzMxLzgwMGQzMWQ5/YmUyOTA3NWVkZGUy/YjczMDRmYzFmYWQ4/LmpwZw"
+            alt="">
+        <i class="onphoto ri-heart-fill"></i>
+        <div class="like">
+            <div class="heartAgain heart"><i class="ri-heart-fill"></i></div>
+            <div class="heartAgain comment"><i class="ri ri-chat-1-line"></i></div>
+            <div class="heartAgain share"><i class="ri ri-share-forward-fill"></i></div>
+        </div>
+    </div>
+
+    <script>let photo = document.querySelector(".mainphoto");
+        let love = document.querySelector(".onphoto");
+        let heart = document.querySelector(".heart")
+        let comment = document.querySelector(".commetn")
+        let share = document.querySelector(".share")
+
+        let flag = 0
+
+        photo.addEventListener('dblclick', () => {
+            love.style.transform = 'translate(-50%, -50%) scale(1.3)'
+            heart.style.color = 'red'
+            setTimeout(() => {
+                love.style.transform = 'translate(-50%, -50%) scale(0)'
+            }, 600);
+            flag++
+        })
+        heart.addEventListener('click', () => {
+            if (flag == 0) {
+                heart.style.color = "red"
+            }
+            else {
+                heart.style.color = 'black'
+            }
+            flag--
+        })
+    </script>
+</body>
+
+
+</html>
